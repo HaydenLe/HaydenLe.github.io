@@ -8,9 +8,9 @@
     
 		.box {
 			width: 70px;
-			height: 70px;  
-			background-color: rgb(201, 45, 221);
-			font-size: 300%;
+			height: 70px;   
+            background-image: url("reading/JJ.jpg");
+ 			font-size: 300%; 
 			text-align: center;
 			display: block;
 			position: absolute;
@@ -55,18 +55,7 @@
             function moveBoxTo(NewPositionX, NewPositionY) {
                 box.css("left", NewPositionX); 
                  box.css('top', NewPositionY); 
-			    }
-                 if (speed >= 0) { 
-                    speed = speed + 3; 
-                }  else if (speedY >= 0) { 
-                        speedY = speedY -3;
-                    }
-                if (speed <0) { 
-                    speed = speed -3;
-                } else if (speed <0){ 
-                   speedY = speedY + 3;
-                };
-
+			    }; 
 			// changes the text displayed on the Box
 			function changeBoxText(newText) {
 				box.text(newText);
@@ -103,13 +92,14 @@
                 } else if(positionY < 0){ 
                     speedY *= -1;
                 };
-
+                
+                
 			};
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
-			the left side of the screen.
+            the left side of the screen. 
 			*/
 			function handleBoxClick() { 
                 positionX = 0;  
