@@ -1,5 +1,5 @@
 var init = function (window) {
-    'use strict';
+    'use strict'; 
     var 
         draw = window.opspark.draw,
         physikz = window.opspark.racket.physikz,
@@ -14,7 +14,8 @@ var init = function (window) {
         
         window.opspark.game = {};
         var game = window.opspark.game;
-        
+       
+
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM SETUP ////////////////////////////
         ////////////////////////////////////////////////////////////
