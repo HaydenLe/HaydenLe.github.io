@@ -30,7 +30,13 @@ Also at: http://bit.ly/op-spark-circularity
 
 # Very Important
 ## Installation 
+
+### Make sure you can install Circularity
+Go to <a href="https://gitpod.io/access-control"> Access Control </a> and check all of the boxes under Github, then save your preferences (if they are all already checked, then you can skip this step).
+
 ### Copy and paste the following commands into the bash terminal, then hit ENTER
+
+**NOTE:** Only the first command is guaranteed to display output. If there is an error on this command, check with your instructor. The second command will often give an error, but that is fine. The rest of the commands should display nothing after being entered.
 
 * git clone https://github.com/operationspark/circularity
 * mkdir projects/circularity
@@ -99,7 +105,7 @@ circles.push(circle);
 
 ## What does this code actually do?
 
-<details> <summary> Click the arrows to find out! </summary>
+<details> <summary> Click the arrow to find out! </summary>
 
 First we call a function from the `draw` library: a collection of functions that allow us to draw various shapes on our `canvas`. This method, `draw.randomCircleInArea` will draw a circle of random size, color, and location within the screen along with a few other settings. Check out the parameters of the function below:
 
@@ -168,7 +174,10 @@ function update() {
 ```
 
 
-**HELPFUL HINT** you can make your circles move more quickly (once they are moving) by changing the `physikz.addRandomVelocity` line to have two extra arguments. Back up in the `drawCircle()` function, try changing that line to be `physikz.addRandomVelocity(circle, canvas, 10, 10);` instead. If you want them to go faster, put bigger numbers. If you want them to go slower, put smaller ones.
+## Suggestion
+You can make your circles move more quickly (once they are moving) by changing the `physikz.addRandomVelocity` line to have two extra arguments. This will make testing future steps easier.
+
+Back up in the `drawCircle()` function, try changing that line to be `physikz.addRandomVelocity(circle, canvas, 10, 10);`. If you want the circles to go faster, put bigger numbers. If you want them to go slower, put smaller ones.
 
 
 # TODO 5 : Keep your circles in the screen 
