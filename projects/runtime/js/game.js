@@ -259,7 +259,7 @@
 
 
 
-        var debugMode = false;
+        var debugMode = true;
 
         /* when debug mode is set to true, the hit zone will be displayed
            for each game item */
