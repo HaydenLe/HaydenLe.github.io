@@ -26,8 +26,11 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        var tree;
-        var buildings = [];
+        var tree; 
+        //D4C_LoveTrainBarrier is var buildings
+        var D4C_LoveTrainBarrier = [];   
+        var HahaFebruary; 
+        var DirtyDeedsDoneDirtCheap
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -58,16 +61,31 @@ var background = function (window) {
            // } 
 
 
-            // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i=0;i<5;++i) {
-            var buildingHeight = Math.floor((Math.random() * 365) + 150);
-            var building = draw.rect(75,buildingHeight + 12,'Brown','Red',1);
-            building.x = 200*i;
-            building.y = groundY-buildingHeight;
-            background.addChild(building);
-            buildings.push(building);
-}
-     
+            // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why? 
+
+            HahaFebruary = draw.bitmap('img/HahaFeb.png'); 
+                HahaFebruary.x = 1210; 
+                HahaFebruary.y = 20; 
+                background.addChild(HahaFebruary); 
+                HahaFebruary.scaleX = 0.14; 
+                HahaFebruary.scaleY = 0.14;  
+
+            DirtyDeedsDoneDirtCheap = draw.bitmap('img/D4C.png'); 
+                DirtyDeedsDoneDirtCheap.x = 1210; 
+                DirtyDeedsDoneDirtCheap.y = 20; 
+                background.addChild(DirtyDeedsDoneDirtCheap); 
+                DirtyDeedsDoneDirtCheap.scaleX = 0.12; 
+                DirtyDeedsDoneDirtCheap.scaleY = 0.12; 
+
+            for(var i=0;i<20;++i) {
+            //var D4CHeight = Math.floor((Math.random() * 365) + 150); 
+            var D4CHeight = 1000
+            var D4C_LoveTrain = draw.rect(5,D4CHeight + 12,'yellow','orange',2);
+            D4C_LoveTrain.x = 200*i;
+            D4C_LoveTrain.y = groundY-D4CHeight;
+            background.addChild(D4C_LoveTrain);
+            D4C_LoveTrainBarrier.push(D4C_LoveTrain);
+                }
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
                 tree.x = 700;
@@ -92,14 +110,14 @@ var background = function (window) {
              tree.x = canvasWidth;
             }
             // TODO 5: Part 2 - Parallax
-           for(var i = 0; i < buildings.length; i++){ 
-                    var building = buildings[i]; 
+           for(var i = 0; i < D4C_LoveTrainBarrier.length; i++){ 
+                    var D4C_LoveTrain = D4C_LoveTrainBarrier[i]; 
             
-                building.x = building.x - 1.7 
-            if(building.x < -200) {
-             building.x = canvasWidth;
+                D4C_LoveTrain.x = D4C_LoveTrain.x - 1.7 
+            if(D4C_LoveTrain.x < -200) {
+             D4C_LoveTrain.x = canvasWidth;
             }
-                }  
+                }   
               
         } // end of update function - DO NOT DELETE
         
