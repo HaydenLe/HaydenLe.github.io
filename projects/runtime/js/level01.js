@@ -20,9 +20,9 @@ var level01 = function (window) {
                 //{ "type": "sawblade", "x": 600, "y": groundY },
                //{ "type": "sawblade", "x": 900, "y": groundY }, 
                { "type": "Dino", "x": 900, "y": groundY - 50 },
-                { "type": "TumbleWeed", "x": 1000, "y": groundY + 5}, 
-                { "type": "TumbleWeed", "x": 2420, "y": groundY + 2}, 
-                { "type": "TumbleWeed", "x": 3000, "y": groundY + 10}, 
+                { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 2420, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 3000, "y": groundY - 10}, 
                 { "type": "enemy", "x": 1000, "y": groundY - 50},
                 { "type": "reward", "x": 2000, "y": groundY - 60}, 
             ] 
