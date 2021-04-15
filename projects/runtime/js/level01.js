@@ -16,12 +16,13 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
-                { "type": "bullet", "x": 1000, "y": groundY }, 
-                { "type": "bullet", "x": 1200, "y": groundY }, 
-                { "type": "bullet", "x": 1300, "y": groundY }, 
+                //{ "type": "sawblade", "x": 400, "y": groundY },
+                //{ "type": "sawblade", "x": 600, "y": groundY },
+               //{ "type": "sawblade", "x": 900, "y": groundY }, 
+               { "type": "Dino", "x": 900, "y": groundY - 50 },
+                { "type": "TumbleWeed", "x": 1000, "y": groundY + 5}, 
+                { "type": "TumbleWeed", "x": 2420, "y": groundY + 2}, 
+                { "type": "TumbleWeed", "x": 3000, "y": groundY + 10}, 
                 { "type": "enemy", "x": 1000, "y": groundY - 50},
                 { "type": "reward", "x": 2000, "y": groundY - 60}, 
             ] 
@@ -33,18 +34,22 @@ var level01 = function (window) {
                  objY = obj.y; 
                  objType = obj.type; 
 
-                if (objType === "sawblade") { 
-                    createSawBlade(objX, objY);
+                if (objType === "Dino") { 
+                    createDino(objX, objY); 
                 } 
-                else if (objType === "bullet") { 
-                    createBullet(objX, objY);
-                }    
-                 else if (objType === "enemy") {
-                    createEnemy(objX, objY);
-                }                  
-                 else (objType === "reward") 
-                    createReward(objX, objY);
-            } 
+                //else if (objType === "sawblade") { 
+                    //createSawBlade(objX, objY);
+                //} 
+                else if (objType === "TumbleWeed") { 
+                    createTumbleWeed(objX, objY);
+                }                   
+                 else  if (objType === "reward") {
+                    createReward(objX, objY); 
+                }  
+                 else (objType === "bullet") 
+                    createBullet(objX, objY);  
+            }
+            
 
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
@@ -53,68 +58,90 @@ var level01 = function (window) {
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
           
-        function createSawBlade(x, y){
-        var hitZoneSize = 25;
+        //function createSawBlade(x, y){
+        //var hitZoneSize = 25;
+        //var damageFromObstacle = 10;
+        //var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); 
+        //sawBladeHitZone.x = x;
+        //sawBladeHitZone.y = y;  
+
+        //game.addGameItem(sawBladeHitZone);  
+
+        //var obstacleImage = draw.bitmap('img/sawblade.png');  
+        //obstacleImage.x = -25; 
+        //obstacleImage.y = -25;
+       //sawBladeHitZone.addChild(obstacleImage); 
+        //} 
+
+    function createDino(x, y){
+        var DinoZoneSize = 25;
         var damageFromObstacle = 10;
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); 
-        sawBladeHitZone.x = x;
-        sawBladeHitZone.y = y;  
+        var DinoHitZone = game.createObstacle(DinoZoneSize, damageFromObstacle); 
+        DinoHitZone.x = x;
+        DinoHitZone.y = y;  
 
-        game.addGameItem(sawBladeHitZone);  
+        game.addGameItem(DinoHitZone);  
 
-        var obstacleImage = draw.bitmap('img/sawblade.png');  
-        obstacleImage.x = -25; 
-        obstacleImage.y = -25;
-       sawBladeHitZone.addChild(obstacleImage); 
-        
+        var Dino = draw.bitmap('img/FlyDino.png');  
+        Dino.x = -85; 
+        Dino.y = -150; 
+        Dino.scaleX = 0.25; 
+        Dino.scaleY = 0.25;  
+       DinoHitZone.addChild(Dino);  
+
+        DinoHitZone.onProjectileCollision = function() { 
+         console.log("Halle has hit the Flying Dinosaur"); 
+          DinoHitZone.shrink();
+        };
     }
+
      //  createSawBlade(400, 220); 
        //createSawBlade(850, 220); 
       // createSawBlade(650, 340);  
 
-      function createBullet(x, y){  
-          var hitZoneSize = .04;
-        var damageFromObstacle = 44;
+      function createTumbleWeed(x, y){  
+        var damageFromObstacle = 2; 
+        var hitZoneSize = 20;
         var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); 
         sawBladeHitZone.x = x;
         sawBladeHitZone.y = y;  
-
+        sawBladeHitZone.velocityX = -5.5;
         game.addGameItem(sawBladeHitZone);  
 
-        var obstacleImage = draw.bitmap('img/bullet4 (1).png');  
-        obstacleImage.x = -.04; 
-        obstacleImage.y = -.04; 
-        obstacleImage.scaleX = .04; 
-        obstacleImage.scaleY = .04;  
+        var obstacleImage = draw.bitmap('img/tumbleweed.png');  
+        obstacleImage.x = -25; 
+        obstacleImage.y = -45; 
+        obstacleImage.scaleX = 0.1; 
+        obstacleImage.scaleY = 0.1;  
        sawBladeHitZone.addChild(obstacleImage);  
       }
 
       //createBullet(2444,244);
       
 
-        function createEnemy(x,y) { 
-        var enemy = game.createGameItem('enemy',25);
-        var redSquare = draw.bitmap('img/bullet4 (1).png');  
+        function createBullet(x,y) { 
+        var bullet = game.createGameItem('bullet',0.4);
+        var redSquare = draw.bitmap('img/mista.png');  
         redSquare.x = -.04;
         redSquare.y = -.04; 
         redSquare.scaleX = .04;
         redSquare.scaleY = .04;
-        enemy.addChild(redSquare);  
-        enemy.x = x;
-        enemy.y = y; 
-        game.addGameItem(enemy); 
-        enemy.velocityX = -14; 
+        bullet.addChild(redSquare);  
+        bullet.x = x;
+        bullet.y = y; 
+        game.addGameItem(bullet); 
+        bullet.velocityX = -14; 
         //enemy.rotationalVelocity = 10; 
-        enemy.onPlayerCollision = function() {
+        bullet.onPlayerCollision = function() {
             console.log('The bullets has hit Halle'); 
             game.onPlayerCollision = game.changeIntegrity(-44);   
             game.increaseScore(100);
-            enemy.fadeOut();
+            bullet.fadeOut();
         };  
              
-        enemy.onProjectileCollision = function() { 
+        bullet.onProjectileCollision = function() { 
             console.log("Halle has hit the bullets...somehow"); 
-            shrink()
+            bullet.shrink();
         };
              };
 

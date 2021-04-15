@@ -30,16 +30,15 @@ var init = function (window) {
     rules = app.rules,
     particleManager = opspark.makeParticleManager(app.stage);
     ground = opspark.makeGround(app);
-
+//#ffe6cc
     // TODO 2 : add background
     var background = opspark.makeBackground(app,ground);
     view.addChild(background);
-    
     var help = draw.textfield('MOVES || up: jump | right: flying jump | down: duck | space: fire | q self destruct!', 
         '15px Arial',
-        '#ccc', 'left');
+        '#000000', 'left');
     help.x = 10;
-    help.y = ground.y + ground.getBounds().height + 10;
+    help.y = ground.y + ground.getBounds().height + 5;
     view.addChild(help);
     
     window.opspark.makeSpriteSheet(data)
