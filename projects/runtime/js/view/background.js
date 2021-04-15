@@ -30,7 +30,8 @@ var background = function (window) {
         //D4C_LoveTrainBarrier is var buildings
         var D4C_LoveTrainBarrier = [];   
         var HahaFebruary; 
-        var DirtyDeedsDoneDirtCheap
+        var DirtyDeedsDoneDirtCheap 
+        var Tusk_Act4
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -39,7 +40,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth + 5, groundY + 12,'#ffe6cc');   
+            var backgroundFill = draw.rect(canvasWidth + 5, groundY + 12,'#b5d6e0');   
             background.addChild(backgroundFill); 
 
           
@@ -71,11 +72,11 @@ var background = function (window) {
                 HahaFebruary.scaleY = 0.14;  
 
             DirtyDeedsDoneDirtCheap = draw.bitmap('img/D4C.png'); 
-                DirtyDeedsDoneDirtCheap.x = 1210; 
-                DirtyDeedsDoneDirtCheap.y = 20; 
+                DirtyDeedsDoneDirtCheap.x = 1110; 
+                DirtyDeedsDoneDirtCheap.y = 35; 
                 background.addChild(DirtyDeedsDoneDirtCheap); 
                 DirtyDeedsDoneDirtCheap.scaleX = 0.12; 
-                DirtyDeedsDoneDirtCheap.scaleY = 0.12; 
+                DirtyDeedsDoneDirtCheap.scaleY = 0.12;  
 
             for(var i=0;i<20;++i) {
             //var D4CHeight = Math.floor((Math.random() * 365) + 150); 
@@ -85,7 +86,16 @@ var background = function (window) {
             D4C_LoveTrain.y = groundY-D4CHeight;
             background.addChild(D4C_LoveTrain);
             D4C_LoveTrainBarrier.push(D4C_LoveTrain);
-                }
+                } 
+
+
+             Tusk_Act4 = draw.bitmap('img/TuskAct4.png'); 
+                Tusk_Act4.x = 10; 
+                Tusk_Act4.y = 220; 
+                background.addChild(Tusk_Act4); 
+                Tusk_Act4.scaleX = 0.12; 
+                Tusk_Act4.scaleY = 0.12;  
+
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
                 tree.x = 700;

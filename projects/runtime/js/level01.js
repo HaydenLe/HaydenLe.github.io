@@ -19,7 +19,8 @@ var level01 = function (window) {
                 //{ "type": "sawblade", "x": 400, "y": groundY },
                 //{ "type": "sawblade", "x": 600, "y": groundY },
                //{ "type": "sawblade", "x": 900, "y": groundY }, 
-               { "type": "Dino", "x": 900, "y": groundY - 50 },
+               { "type": "Dino", "x": 900, "y": groundY - 50 }, 
+               { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 },
                 { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 2420, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 3000, "y": groundY - 10}, 
@@ -36,10 +37,15 @@ var level01 = function (window) {
 
                 if (objType === "Dino") { 
                     createDino(objX, objY); 
-                } 
+                }  
                 //else if (objType === "sawblade") { 
                     //createSawBlade(objX, objY);
                 //} 
+
+                 else if (objType === "ScaryMonsters") { 
+                    createScaryMonsters(objX, objY);
+                }
+
                 else if (objType === "TumbleWeed") { 
                     createTumbleWeed(objX, objY);
                 }                   
@@ -92,6 +98,28 @@ var level01 = function (window) {
         DinoHitZone.onProjectileCollision = function() { 
          console.log("Halle has hit the Flying Dinosaur"); 
           DinoHitZone.shrink();
+        };
+    } 
+
+        function createScaryMonsters(x, y){
+        var ScaryMonstersZoneSize = 50;
+        var damageFromObstacle = 10;
+        var ScaryMonstersHitZone = game.createObstacle(ScaryMonstersZoneSize, damageFromObstacle); 
+        ScaryMonstersHitZone.x = x;
+        ScaryMonstersHitZone.y = y;  
+
+        game.addGameItem(ScaryMonstersHitZone);  
+
+        var SuperCreeps = draw.bitmap('img/ScaryMonsters.png');  
+        SuperCreeps.x = -70; 
+        SuperCreeps.y = -60; 
+        SuperCreeps.scaleX = 0.15; 
+        SuperCreeps.scaleY = 0.15;  
+       ScaryMonstersHitZone.addChild(SuperCreeps);  
+
+        ScaryMonstersHitZone.onProjectileCollision = function() { 
+         console.log("Halle has hit the WALK Dinosaur"); 
+          ScaryMonstersHitZone.shrink();
         };
     }
 
