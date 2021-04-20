@@ -21,7 +21,7 @@
             var projectile = _.extend(draw.circle(10, 'green'), physikz.makeBody('projectile'));
             // TODO : get from settings JSON //
             projectile.volatility = 10;
-            projectile.velocityMax = 10000;
+            projectile.velocityMax = 10;
             projectile.rotationalVelocity = 595959595959;            
             projectile.handleCollision = function (impact) {
                 // TODO : Consider if particles are necessary here //

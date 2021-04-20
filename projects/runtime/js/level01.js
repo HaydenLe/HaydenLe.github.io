@@ -16,21 +16,42 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                //{ "type": "sawblade", "x": 400, "y": groundY },
-                //{ "type": "sawblade", "x": 600, "y": groundY },
-               //{ "type": "sawblade", "x": 900, "y": groundY }, 
-               { "type": "Dino", "x": 1234, "y": groundY - 50 },  
-               { "type": "Dino", "x": 34234, "y": groundY - 65 }, 
-               { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 1750, "y": groundY - 10 },
+                //{ "type": "sawblade", "x": 100, "y": groundY - 50 },
+                { "type": "Dino", "x": 1234, "y": groundY - 110 }, 
+                { "type": "Dino", "x": 2234, "y": groundY - 120 }, 
+                { "type": "Dino", "x": 3234, "y": groundY - 65 }, 
+                { "type": "Dino", "x": 4567, "y": groundY - 65 }, 
+                { "type": "Dino", "x": 5234, "y": groundY - 75 },
+                { "type": "Dino", "x": 8351, "y": groundY - 75 },  
+                { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 1750, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 3750, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 5750, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 6575, "y": groundY - 10 },
                 { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 2420, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 3000, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 2620, "y": groundY - 10},
+                { "type": "TumbleWeed", "x": 3560, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 4000, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 5890, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 7578, "y": groundY - 10},  
+                { "type": "TumbleWeed", "x": 8056, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 9459, "y": groundY - 10},  
+                { "type": "TumbleWeed", "x": 9756, "y": groundY - 10}, 
+                { "type": "TumbleWeed", "x": 9800, "y": groundY - 10}, 
                 { "type": "bullet", "x": 1000, "y": groundY - 50}, 
                 { "type": "bullet", "x": 2800, "y": groundY - 50}, 
-                { "type": "bullet", "x": 4269, "y": groundY - 50},
+                { "type": "bullet", "x": 2500, "y": groundY - 40},
+                { "type": "bullet", "x": 3400, "y": groundY - 60},  
+                { "type": "bullet", "x": 1129, "y": groundY - 70},
+                { "type": "bullet", "x": 10009, "y": groundY - 50}, 
+                { "type": "bullet", "x": 11269, "y": groundY - 50}, 
+                { "type": "bullet", "x": 15067, "y": groundY - 50}, 
+                { "type": "bullet", "x": 18269, "y": groundY - 62},
                 { "type": "reward", "x": 2555, "y": groundY - 60}, 
-                { "type": "reward", "x": 3555, "y": groundY - 60},  
+                { "type": "reward", "x": 3555, "y": groundY - 60},   
+                { "type": "reward", "x": 4999, "y": groundY - 60},  
+                { "type": "reward", "x": 6824, "y": groundY - 60}, 
+                { "type": "Za Hando", "x": 12345, "y": groundY - 61},
             ] 
         };  
 
@@ -56,8 +77,11 @@ var level01 = function (window) {
                 }                   
                  else  if (objType === "reward") {
                     createReward(objX, objY); 
-                }  
-                 else (objType === "bullet") 
+                }   
+                else if (objType === "Za Hando") { 
+                   createOiJosuke(objX, objY); 
+                }
+                 else if (objType === "bullet") 
                     createBullet(objX, objY);  
             }
             
@@ -126,11 +150,35 @@ var level01 = function (window) {
          console.log("Halle has hit the WALK Dinosaur"); 
           ScaryMonstersHitZone.shrink();
         };
-    }
+    } 
 
      //createSawBlade(400, 220); 
        //createSawBlade(850, 220); 
-      // createSawBlade(650, 340);  
+      // createSawBlade(650, 340);   
+
+     function createOiJosuke(x, y){
+        var TheHandZoneSize = 70; 
+        var damageFromHand = 10000000000000000000000000000000000000000000000000000000000000000000000000000;
+        var TheHandHitZone = game.createObstacle(TheHandZoneSize, damageFromHand); 
+        TheHandHitZone.x = x;
+        TheHandHitZone.y = y; 
+
+        game.addGameItem(TheHandHitZone);  
+
+        var OiJosuke = draw.bitmap('img/OiJosuke.png');  
+        OiJosuke.x = -70; 
+        OiJosuke.y = -150;
+        OiJosuke.scaleX = .2; 
+        OiJosuke.scaleY = .2;  
+       TheHandHitZone.addChild(OiJosuke);  
+        
+        OiJosuke.onPlayerCollision = function() {
+            console.log('Oi Josuke! I used『Za Hando』to erase this werid robot and now the player is gone! Aint that wacky?'); 
+            game.onPlayerCollision = game.changeIntegrity(-10000000000000000000000);   
+            game.increaseScore(1)  
+        } 
+    }
+
 
       function createTumbleWeed(x, y){  
         var damageFromObstacle = 2; 
@@ -184,9 +232,9 @@ var level01 = function (window) {
 
         function createReward(x,y) { 
             var reward = game.createGameItem('reward',25); 
-            var greenSquare = draw.circle(25,25, 'green');   
-            greenSquare.x = -2;
-            greenSquare.y = -2; 
+            var greenSquare = draw.rect(25,25, 'green');   
+            greenSquare.x = -5;
+            greenSquare.y = -5; 
             reward.addChild(greenSquare);  
             reward.x = x;
             reward.y = y;   
@@ -196,7 +244,7 @@ var level01 = function (window) {
 
             reward.onPlayerCollision = function() {
              console.log('Halle got a reward'); 
-             game.onPlayerCollision = game.changeIntegrity(25);  
+             game.onPlayerCollision = game.changeIntegrity(44);  
              game.increaseScore(50);
              reward.shrink();
             };
