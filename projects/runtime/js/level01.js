@@ -19,13 +19,18 @@ var level01 = function (window) {
                 //{ "type": "sawblade", "x": 400, "y": groundY },
                 //{ "type": "sawblade", "x": 600, "y": groundY },
                //{ "type": "sawblade", "x": 900, "y": groundY }, 
-               { "type": "Dino", "x": 900, "y": groundY - 50 }, 
-               { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 },
+               { "type": "Dino", "x": 1234, "y": groundY - 50 },  
+               { "type": "Dino", "x": 34234, "y": groundY - 65 }, 
+               { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 1750, "y": groundY - 10 },
                 { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 2420, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 3000, "y": groundY - 10}, 
-                { "type": "enemy", "x": 1000, "y": groundY - 50},
-                { "type": "reward", "x": 2000, "y": groundY - 60}, 
+                { "type": "bullet", "x": 1000, "y": groundY - 50}, 
+                { "type": "bullet", "x": 2800, "y": groundY - 50}, 
+                { "type": "bullet", "x": 4269, "y": groundY - 50},
+                { "type": "reward", "x": 2555, "y": groundY - 60}, 
+                { "type": "reward", "x": 3555, "y": groundY - 60},  
             ] 
         };  
 
@@ -123,7 +128,7 @@ var level01 = function (window) {
         };
     }
 
-     //  createSawBlade(400, 220); 
+     //createSawBlade(400, 220); 
        //createSawBlade(850, 220); 
       // createSawBlade(650, 340);  
 
@@ -178,21 +183,22 @@ var level01 = function (window) {
        //createBullets(1200,groundY-50);
 
         function createReward(x,y) { 
-            var reward = game.createGameItem('reward',25);
-            var greenSquare = draw.rect(25,25,'green');     
-            greenSquare.x = -25;
-            greenSquare.y = -25; 
+            var reward = game.createGameItem('reward',25); 
+            var greenSquare = draw.circle(25,25, 'green');   
+            greenSquare.x = -2;
+            greenSquare.y = -2; 
             reward.addChild(greenSquare);  
             reward.x = x;
             reward.y = y;   
             game.addGameItem(reward);  
             reward.velocityX = -5; 
-            reward.rotationalVelocity = 64; 
+            reward.rotationalVelocity = 5959595; 
+
             reward.onPlayerCollision = function() {
              console.log('Halle got a reward'); 
-             game.onPlayerCollision = game.changeIntegrity(10);  
+             game.onPlayerCollision = game.changeIntegrity(25);  
              game.increaseScore(50);
-             reward.shrink(); 
+             reward.shrink();
             };
         };
          //createReward(2200,groundY-50);

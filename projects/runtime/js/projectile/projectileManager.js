@@ -18,12 +18,11 @@
             _objects = []; 
         
         function makeProjectile() {
-            var projectile = _.extend(draw.circle(3.5, '#f7f15e'), physikz.makeBody('projectile'));
+            var projectile = _.extend(draw.circle(10, 'green'), physikz.makeBody('projectile'));
             // TODO : get from settings JSON //
             projectile.volatility = 10;
-            projectile.velocityMax = 10000;  
-            projectile.velocityX = 1000;
-            projectile.rotationalVelocity = 100000;            
+            projectile.velocityMax = 10000;
+            projectile.rotationalVelocity = 595959595959;            
             projectile.handleCollision = function (impact) {
                 // TODO : Consider if particles are necessary here //
                 // particleManager.makeEmitter(1, 2, '#FF0000').emit({x: projectile.x, y: projectile.y}, 0.5);

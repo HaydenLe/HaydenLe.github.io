@@ -25,8 +25,9 @@ var background = function (window) {
         // container which will be returned
         var background;
         
-        // ANIMATION VARIABLES HERE:
-        var tree; 
+        // ANIMATION VARIABLES HERE: 
+        //SteelBallRun is var tree
+        var SteelBallRun; 
         //D4C_LoveTrainBarrier is var buildings
         var D4C_LoveTrainBarrier = [];   
         var HahaFebruary; 
@@ -89,18 +90,20 @@ var background = function (window) {
                 } 
 
 
-             Tusk_Act4 = draw.bitmap('img/TuskAct4.png'); 
+             Tusk_Act4 = draw.bitmap('img/BallBreaker.png'); 
                 Tusk_Act4.x = 10; 
                 Tusk_Act4.y = 220; 
                 background.addChild(Tusk_Act4); 
-                Tusk_Act4.scaleX = 0.12; 
-                Tusk_Act4.scaleY = 0.12;  
+                Tusk_Act4.scaleX = 0.25; 
+                Tusk_Act4.scaleY = 0.25;  
 
             // TODO 4: Part 1 - Add a tree
-            tree = draw.bitmap('img/tree.png');
-                tree.x = 700;
-                tree.y = 345;
-                background.addChild(tree);
+            SteelBallRun = draw.bitmap('img/SteelBallRun.png');
+                SteelBallRun.x = 700;
+                SteelBallRun.y = 345; 
+                SteelBallRun.scaleX = 0.5;
+                SteelBallRun.scaleY = 0.5;
+                background.addChild(SteelBallRun);
             } 
         // end of render function - DO NOT DELETE
         
@@ -114,10 +117,10 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-           tree.x = tree.x - 1;
+           SteelBallRun.x = SteelBallRun.x - 1;
 
-            if(tree.x < -200) {
-             tree.x = canvasWidth;
+            if(SteelBallRun.x < -1500) {
+             SteelBallRun.x = canvasWidth;
             }
             // TODO 5: Part 2 - Parallax
            for(var i = 0; i < D4C_LoveTrainBarrier.length; i++){ 
