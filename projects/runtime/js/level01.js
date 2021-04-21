@@ -22,35 +22,50 @@ var level01 = function (window) {
                 { "type": "Dino", "x": 3234, "y": groundY - 65 }, 
                 { "type": "Dino", "x": 4567, "y": groundY - 65 }, 
                 { "type": "Dino", "x": 5234, "y": groundY - 75 },
-                { "type": "Dino", "x": 8351, "y": groundY - 75 },  
+                { "type": "Dino", "x": 6567, "y": groundY - 65 }, 
+                { "type": "Dino", "x": 7234, "y": groundY - 125 },
+                { "type": "Dino", "x": 8351, "y": groundY - 65 },  
                 { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 }, 
                 { "type": "ScaryMonsters", "x": 1750, "y": groundY - 10 }, 
                 { "type": "ScaryMonsters", "x": 3750, "y": groundY - 10 }, 
                 { "type": "ScaryMonsters", "x": 5750, "y": groundY - 10 }, 
                 { "type": "ScaryMonsters", "x": 6575, "y": groundY - 10 },
+                { "type": "ScaryMonsters", "x": 7790, "y": groundY - 10 }, 
+                { "type": "ScaryMonsters", "x": 8875, "y": groundY - 10 },
                 { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 2620, "y": groundY - 10},
                 { "type": "TumbleWeed", "x": 3560, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 4000, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 5890, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 7578, "y": groundY - 10},  
+                { "type": "TumbleWeed", "x": 6856, "y": groundY - 10},
+                { "type": "TumbleWeed", "x": 6978, "y": groundY - 10},  
                 { "type": "TumbleWeed", "x": 8056, "y": groundY - 10}, 
                 { "type": "TumbleWeed", "x": 9459, "y": groundY - 10},  
                 { "type": "TumbleWeed", "x": 9756, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 9800, "y": groundY - 10}, 
-                { "type": "bullet", "x": 1000, "y": groundY - 50}, 
+                { "type": "TumbleWeed", "x": 9800, "y": groundY - 10},  
+                { "type": "TumbleWeed", "x": 9880, "y": groundY - 10}, 
+                { "type": "bullet", "x": 1000, "y": groundY - 80}, 
                 { "type": "bullet", "x": 2800, "y": groundY - 50}, 
-                { "type": "bullet", "x": 2500, "y": groundY - 40},
-                { "type": "bullet", "x": 3400, "y": groundY - 60},  
-                { "type": "bullet", "x": 1129, "y": groundY - 70},
-                { "type": "bullet", "x": 10009, "y": groundY - 50}, 
-                { "type": "bullet", "x": 11269, "y": groundY - 50}, 
-                { "type": "bullet", "x": 15067, "y": groundY - 50}, 
-                { "type": "bullet", "x": 18269, "y": groundY - 62},
+                { "type": "bullet", "x": 11500, "y": groundY - 50},
+                { "type": "bullet", "x": 13400, "y": groundY - 80},  
+                { "type": "bullet", "x": 1129, "y": groundY - 90},
+                { "type": "bullet", "x": 10009, "y": groundY - 80}, 
+                { "type": "bullet", "x": 11269, "y": groundY - 83}, 
+                { "type": "bullet", "x": 16067, "y": groundY - 50}, 
+                { "type": "bullet", "x": 18269, "y": groundY - 90},
+                { "type": "bullet", "x": 18690, "y": groundY - 70}, 
+                { "type": "bullet", "x": 20067, "y": groundY - 60}, 
+                { "type": "bullet", "x": 25269, "y": groundY - 90},
                 { "type": "reward", "x": 2555, "y": groundY - 60}, 
+                { "type": "TubularBells", "x": 1500, "y": groundY - 60},
+                { "type": "TubularBells", "x": 5500, "y": groundY - 35}, 
+                { "type": "TubularBells", "x": 7090, "y": groundY - 40},
+                { "type": "TubularBells", "x": 9920, "y": groundY - 70},
+                { "type": "TubularBells", "x": 10000, "y": groundY - 25},
                 { "type": "reward", "x": 3555, "y": groundY - 60},   
-                { "type": "reward", "x": 4999, "y": groundY - 60},  
-                { "type": "reward", "x": 6824, "y": groundY - 60}, 
+                { "type": "reward", "x": 5009, "y": groundY - 60},  
+                { "type": "reward", "x": 6824, "y": groundY - 60},  
+                { "type": "reward", "x": 8824, "y": groundY - 60}, 
                 { "type": "Za Hando", "x": 12345, "y": groundY - 61},
             ] 
         };  
@@ -74,10 +89,13 @@ var level01 = function (window) {
 
                 else if (objType === "TumbleWeed") { 
                     createTumbleWeed(objX, objY);
-                }                   
+                }       
+                else if (objType === "TubularBells") { 
+                    createTubularBells(objX, objY); 
+                }            
                  else  if (objType === "reward") {
                     createReward(objX, objY); 
-                }   
+                }    
                 else if (objType === "Za Hando") { 
                    createOiJosuke(objX, objY); 
                 }
@@ -227,8 +245,28 @@ var level01 = function (window) {
              };
 
        //createBullets(1400,groundY-10);
-       //createBullets(800,groundY-100);
+       //createBullets(800,groundY-100); 
        //createBullets(1200,groundY-50);
+
+       function createTubularBells(x,y) { 
+        var Bells = game.createGameItem("TubularBells",50);
+        var Tubular = draw.bitmap('img/Tubular Bells.png');  
+        Tubular.x = 60;
+        Tubular.y = 45; 
+        Tubular.scaleX = -.2;
+        Tubular.scaleY = -.2;
+        Bells.addChild(Tubular);  
+        Bells.x = x;
+        Bells.y = y; 
+        game.addGameItem(Bells); 
+        Bells.velocityX = -6.6; 
+        Bells.onPlayerCollision = function() {
+            console.log('Halle got a funny looking balloon dog'); 
+            game.onPlayerCollision = game.changeIntegrity(22);   
+            game.increaseScore(25);
+            Bells.fadeOut();
+        };  
+    };
 
         function createReward(x,y) { 
             var reward = game.createGameItem('reward',25); 
@@ -252,6 +290,7 @@ var level01 = function (window) {
          //createReward(2200,groundY-50);
 
         
+
         // DO NOT EDIT CODE BELOW HERE
     }
 };
