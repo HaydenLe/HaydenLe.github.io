@@ -17,56 +17,52 @@ var level01 = function (window) {
             "speed": -3,
             "gameItems": [
                 //{ "type": "sawblade", "x": 100, "y": groundY - 50 },
-                { "type": "Dino", "x": 1234, "y": groundY - 110 }, 
-                { "type": "Dino", "x": 2234, "y": groundY - 120 }, 
-                { "type": "Dino", "x": 3234, "y": groundY - 65 }, 
-                { "type": "Dino", "x": 4567, "y": groundY - 65 }, 
-                { "type": "Dino", "x": 5234, "y": groundY - 75 },
-                { "type": "Dino", "x": 6567, "y": groundY - 65 }, 
-                { "type": "Dino", "x": 7234, "y": groundY - 125 },
-                { "type": "Dino", "x": 8351, "y": groundY - 65 },  
-                { "type": "ScaryMonsters", "x": 750, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 1750, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 3750, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 5750, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 6575, "y": groundY - 10 },
-                { "type": "ScaryMonsters", "x": 7790, "y": groundY - 10 }, 
-                { "type": "ScaryMonsters", "x": 8875, "y": groundY - 10 },
-                { "type": "TumbleWeed", "x": 1000, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 2620, "y": groundY - 10},
-                { "type": "TumbleWeed", "x": 3560, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 4000, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 5890, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 6856, "y": groundY - 10},
-                { "type": "TumbleWeed", "x": 6978, "y": groundY - 10},  
-                { "type": "TumbleWeed", "x": 8056, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 9459, "y": groundY - 10},  
-                { "type": "TumbleWeed", "x": 9756, "y": groundY - 10}, 
-                { "type": "TumbleWeed", "x": 9800, "y": groundY - 10},  
-                { "type": "TumbleWeed", "x": 9880, "y": groundY - 10}, 
-                { "type": "bullet", "x": 1000, "y": groundY - 80}, 
-                { "type": "bullet", "x": 2800, "y": groundY - 50}, 
-                { "type": "bullet", "x": 11500, "y": groundY - 50},
-                { "type": "bullet", "x": 13400, "y": groundY - 80},  
-                { "type": "bullet", "x": 1129, "y": groundY - 90},
-                { "type": "bullet", "x": 10009, "y": groundY - 80}, 
-                { "type": "bullet", "x": 11269, "y": groundY - 83}, 
-                { "type": "bullet", "x": 16067, "y": groundY - 50}, 
-                { "type": "bullet", "x": 18269, "y": groundY - 90},
-                { "type": "bullet", "x": 18690, "y": groundY - 70}, 
-                { "type": "bullet", "x": 20067, "y": groundY - 60}, 
-                { "type": "bullet", "x": 25269, "y": groundY - 90},
-                { "type": "reward", "x": 2555, "y": groundY - 60}, 
-                { "type": "TubularBells", "x": 1500, "y": groundY - 60},
-                { "type": "TubularBells", "x": 5500, "y": groundY - 35}, 
-                { "type": "TubularBells", "x": 7090, "y": groundY - 40},
-                { "type": "TubularBells", "x": 9920, "y": groundY - 70},
-                { "type": "TubularBells", "x": 10000, "y": groundY - 25},
-                { "type": "reward", "x": 3555, "y": groundY - 60},   
-                { "type": "reward", "x": 5009, "y": groundY - 60},  
-                { "type": "reward", "x": 6824, "y": groundY - 60},  
-                { "type": "reward", "x": 8824, "y": groundY - 60}, 
-                { "type": "Za Hando", "x": 12345, "y": groundY - 61},
+                { "type": "Dino", "x": 1234, "y": groundY - 122 }, 
+                { "type": "Dino", "x": 2234, "y": groundY - 137 }, 
+                { "type": "Dino", "x": 3234, "y": groundY - 77 }, 
+                { "type": "Dino", "x": 4567, "y": groundY - 77 }, 
+                { "type": "Dino", "x": 5234, "y": groundY - 87 },
+                { "type": "Dino", "x": 6567, "y": groundY - 77 }, 
+                { "type": "Dino", "x": 7234, "y": groundY - 137 },
+                { "type": "Dino", "x": 8351, "y": groundY - 77 },  
+                { "type": "ScaryMonsters", "x": 750, "y": groundY - 22 }, 
+                { "type": "ScaryMonsters", "x": 1750, "y": groundY - 22 }, 
+                { "type": "ScaryMonsters", "x": 3750, "y": groundY - 22 }, 
+                { "type": "ScaryMonsters", "x": 5750, "y": groundY - 22 }, 
+                { "type": "ScaryMonsters", "x": 6575, "y": groundY - 22 },
+                { "type": "ScaryMonsters", "x": 7790, "y": groundY - 22 }, 
+                { "type": "ScaryMonsters", "x": 8875, "y": groundY - 22 },
+                { "type": "TumbleWeed", "x": 1000, "y": groundY - 22}, 
+                { "type": "TumbleWeed", "x": 2620, "y": groundY - 22},
+                { "type": "TumbleWeed", "x": 3560, "y": groundY - 22}, 
+                { "type": "TumbleWeed", "x": 4000, "y": groundY - 22},  
+                { "type": "TumbleWeed", "x": 6856, "y": groundY - 22},
+                { "type": "TumbleWeed", "x": 6978, "y": groundY - 22},  
+                { "type": "TumbleWeed", "x": 8056, "y": groundY - 22}, 
+                { "type": "TumbleWeed", "x": 9459, "y": groundY - 22},  
+                { "type": "TumbleWeed", "x": 9756, "y": groundY - 22},  
+                { "type": "TumbleWeed", "x": 9800, "y": groundY - 22},  
+                { "type": "bullet", "x": 1000, "y": groundY - 92}, 
+                { "type": "bullet", "x": 2222, "y": groundY - 92}, 
+                { "type": "bullet", "x": 12500, "y": groundY - 112},
+                { "type": "bullet", "x": 13400, "y": groundY - 137},  
+                { "type": "bullet", "x": 3929, "y": groundY - 102},
+                { "type": "bullet", "x": 19009, "y": groundY - 92}, 
+                { "type": "bullet", "x": 14269, "y": groundY - 132},  
+                { "type": "bullet", "x": 28269, "y": groundY - 102},
+                { "type": "bullet", "x": 38690, "y": groundY - 82}, 
+                { "type": "bullet", "x": 20067, "y": groundY - 72}, 
+                { "type": "bullet", "x": 25269, "y": groundY - 102},
+                { "type": "TubularBells", "x": 1500, "y": groundY - 72},
+                { "type": "TubularBells", "x": 3500, "y": groundY - 57}, 
+                { "type": "TubularBells", "x": 6590, "y": groundY - 32},
+                { "type": "TubularBells", "x": 9920, "y": groundY - 82},
+                { "type": "TubularBells", "x": 1000, "y": groundY - 37}, 
+                { "type": "reward", "x": 2555, "y": groundY - 72},
+                { "type": "reward", "x": 5009, "y": groundY - 62},  
+                { "type": "reward", "x": 6824, "y": groundY - 72},  
+                { "type": "reward", "x": 8824, "y": groundY - 77}, 
+                { "type": "Za Hando", "x": 15432, "y": groundY - 73},
             ] 
         };  
 
@@ -175,7 +171,7 @@ var level01 = function (window) {
       // createSawBlade(650, 340);   
 
      function createOiJosuke(x, y){
-        var TheHandZoneSize = 70; 
+        var TheHandZoneSize = 75; 
         var damageFromHand = 10000000000000000000000000000000000000000000000000000000000000000000000000000;
         var TheHandHitZone = game.createObstacle(TheHandZoneSize, damageFromHand); 
         TheHandHitZone.x = x;
@@ -232,14 +228,14 @@ var level01 = function (window) {
         bullet.velocityX = -14; 
         //enemy.rotationalVelocity = 10; 
         bullet.onPlayerCollision = function() {
-            console.log('The bullets has hit Halle'); 
+            console.log('The bullet has shot Halle'); 
             game.onPlayerCollision = game.changeIntegrity(-44);   
             game.increaseScore(100);
             bullet.fadeOut();
         };  
              
         bullet.onProjectileCollision = function() { 
-            console.log("Halle has hit the bullets...somehow"); 
+            console.log("Halle has hit the bullet...somehow"); 
             bullet.shrink();
         };
              };
@@ -249,12 +245,12 @@ var level01 = function (window) {
        //createBullets(1200,groundY-50);
 
        function createTubularBells(x,y) { 
-        var Bells = game.createGameItem("TubularBells",50);
+        var Bells = game.createGameItem("TubularBells",30);
         var Tubular = draw.bitmap('img/Tubular Bells.png');  
-        Tubular.x = 60;
-        Tubular.y = 45; 
-        Tubular.scaleX = -.2;
-        Tubular.scaleY = -.2;
+        Tubular.x = 32;
+        Tubular.y = 25; 
+        Tubular.scaleX = -.1;
+        Tubular.scaleY = -.1;
         Bells.addChild(Tubular);  
         Bells.x = x;
         Bells.y = y; 
@@ -269,19 +265,21 @@ var level01 = function (window) {
     };
 
         function createReward(x,y) { 
-            var reward = game.createGameItem('reward',25); 
-            var greenSquare = draw.rect(25,25, 'green');   
-            greenSquare.x = -5;
-            greenSquare.y = -5; 
-            reward.addChild(greenSquare);  
+            var reward = game.createGameItem("RoundABout",40); 
+            var PizzaMozzarella = draw.bitmap('img/BestSong.png');   
+            PizzaMozzarella.x = -40;
+            PizzaMozzarella.y = -40; 
+            PizzaMozzarella.scaleX = .1; 
+            PizzaMozzarella.scaleY = .1;  
+            reward.addChild(PizzaMozzarella);  
             reward.x = x;
             reward.y = y;   
             game.addGameItem(reward);  
             reward.velocityX = -5; 
-            reward.rotationalVelocity = 5959595; 
+            reward.rotationalVelocity = 2004200520111890; 
 
             reward.onPlayerCollision = function() {
-             console.log('Halle got a reward'); 
+             console.log('Halle got a PizzaMozzarella PizzaMozzarella Rella Rella Rella'); 
              game.onPlayerCollision = game.changeIntegrity(44);  
              game.increaseScore(50);
              reward.shrink();
