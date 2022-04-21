@@ -10,8 +10,8 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 10;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;  
-  const appleEat = new Audio('poyo.mp3');
-  const gameOver = new Audio('KirbyDeathSound.mp3');  
+  const appleEat = new Audio('poyo.mp3'); //audio for when the apple gets eaten
+  const gameOver = new Audio('KirbyDeathSound.mp3');  //audio for the game over
   
   const BOARD_WIDTH = $('#board').width();
   const BOARD_HEIGHT= $('#board').height();
@@ -27,7 +27,7 @@ function runProgram(){
   // Game Item Objects
 
 
-function snekParts(id, positionX, positionY, speedX, speedY){ 
+function snekParts(id, positionX, positionY, speedX, speedY){ //object function for the snakehead and body
   var noodle = { 
     id: id, 
     positionX: positionX, 
@@ -56,7 +56,7 @@ var score = 0;
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
-  function newFrame() {   
+  function newFrame() { ///holds the helper functions and calls them every time
     snakeCollide();
     crunch(); 
     moveBody(); 
@@ -70,7 +70,7 @@ var score = 0;
   Called in response to events.
   */
 
-function handleKeyDown(event){ 
+function handleKeyDown(event){ //keyboard functions for movement and reset button
 
    if (event.which === KEYS.A && snekHed.speedX <= 0){  
       snekHed.speedX = -20;
@@ -94,7 +94,7 @@ function handleKeyDown(event){
 }  
 
 
-function crunch(){ 
+function crunch(){ //when the apple is eaten, increase score by 1 and redraw the apple somehwere else
   if (snekHed.positionY === appy.positionY && snekHed.positionX === appy.positionX){ 
     appy.positionX = Math.floor(Math.random()*92) * 20; 
     appy.positionY = Math.floor(Math.random()*45) * 20;   
@@ -111,14 +111,14 @@ function border(){ ///border collision to reset the game/game over
   }
 }; 
   
-  function snakeCollide(){ 
+  function snakeCollide(){ ///ends the game if the snakehead overlaps the snakebody
     for(var i = 1; i < sneks.length; i++){ 
       if(snekHed.positionY === sneks[i].positionY && snekHed.positionX === sneks[i].positionX) 
      return endGame();
     }
   } 
 
-  function scorer(){ 
+  function scorer(){ //visible score board
     $("#score").text("player apples eaten: " + score); 
   }
 
@@ -129,7 +129,7 @@ function border(){ ///border collision to reset the game/game over
   /////////////Mark Cohn Helped///////////////// 
 
   
-  function addBody(){ 
+  function addBody(){ //when the apple is eaten,a snake body is replaced where the apple was 
     var newBody = "snakeHead" + sneks.length;  
 
     $("<div>").addClass("snake").attr("id", newBody).appendTo("#board"); 
@@ -143,7 +143,7 @@ function border(){ ///border collision to reset the game/game over
     sneks.push(pieceMaker);
   } 
  
-  function moveBody(){ 
+  function moveBody(){   //moves the body one block behind the head so it doesn overlap
     for(var i = sneks.length - 1; i >= 1; i--){ 
       sneks[i].positionX = sneks[i - 1].positionX; 
       sneks[i].positionY = sneks[i - 1].positionY; 
@@ -153,13 +153,13 @@ function border(){ ///border collision to reset the game/game over
 
   ////////////No More Help/////////////////////
 
- function repositionGameItem(obj) {
+ function repositionGameItem(obj) { //moves the snake/snakebody
     obj.positionX += obj.speedX;
     obj.positionY += obj.speedY; 
     redrawGameItem(snekHed);  
   } 
   
-  function redrawGameItem(obj) {
+  function redrawGameItem(obj) { //starting positions of snake/apple
     $(obj.id).css("top", obj.positionY);
     $(obj.id).css("left", obj.positionX); 
   }  
@@ -176,8 +176,8 @@ function border(){ ///border collision to reset the game/game over
 /////END GAME///// 
 //////////////////
   function endGame() {  
-    $("#background-video").attr("src","Markiplier there will be bloodshed.mp4"); 
-     gameOver.play();   
+    $("#background-video").attr("src","Markiplier there will be bloodshed.mp4"); //video plays when gameover
+     gameOver.play();   //audio plats when gameover
     // stop the interval timer
     clearInterval(interval);
 
