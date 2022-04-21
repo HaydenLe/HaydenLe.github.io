@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    </head>
+
+    <body>
+      <div id="all-contents">
+      
+      </div>
+    </body>
+</html>  
+
+ <head>
+        <title>Hayden's "Website"</title> 
+        <style>
+    body {
+        background: rgb(39, 55, 176);
+        color: rgb(115, 227, 95);
+        padding: 10px;
+        font-family: arial;
+    }
+    #all-contents {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    /* navigation menu */
+    nav {
+        background: rgb(212, 30, 252);
+        margin: 0 auto;
+        margin-bottom: 20px; 
+        display: flex;
+        padding: 10px;
+    }
+    h1 {
+        display: flex;
+        align-items: center;
+        color: rgb(255,206,8);
+        flex: 1;
+        margin: 0;
+    }
+    #nav-ul {
+        list-style-image: none;
+    }
+    .nav-li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+    a {
+        text-decoration: none;
+        color: rgb(82,3,252);
+    }
+
+    /* main container area beneath menu */
+    main {
+        background: rgb(92, 89, 89);
+        display: flex;
+    }
+    .sidebar {
+        margin-right: 25px;
+        padding: 10px;
+    }
+    .sidebar-img {
+        width: 200px;
+    }
+    .content {
+        flex: 1;
+        padding: 15px; 
+    }  
+         /* portfolio styles */
+            .content h1 {
+                color: yellow;
+            }
+            
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: rgb(50, 21, 118);
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: rgb(32, 233, 237); 
+            }
+    #interests {
+        border: 4px silver ridge;
+        padding: 8px;
+    }
+    h2, h3 {
+        margin: 0px;
+    }
+</style>
+    </head> 
+    <div id="all-contents">
+        <nav>
+            <h1>A Very BiZzArE Website</h1>
+            <ul id="nav-ul">
+                <li class="nav-li">
+                  <a class="nav-a" href="index.html">Home</a>
+                </li>
+                <li class="nav-li">
+                  <a class="nav-a" href="portfolio.html">Portfolio</a>
+                </li>
+            </ul>
+        </nav> 
+            <main>
+            <div class="content">
+                <h1>Portfolio</h1>
+                <ul id="portfolio"> 
+                    <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+                     <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+                     <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
+                     <li><a href="projects/runtime/" target = "_blank">Runtime : A Sidescrolling game featuring Halleb0t</a></li> 
+                     <li><a href="projects/PONG/">Pong : the classic game, but dumbest</a></li> 
+                     <li><a href="snake">Snake : the classic game, but dumberest</a></li>
+                </ul>
+            </div>
+         </main>
+    </div> 

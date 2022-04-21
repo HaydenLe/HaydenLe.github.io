@@ -1,0 +1,48 @@
+
+body {
+  background-color: black; 
+  border: 1px crimson;
+}
+
+#board {
+  width: 1890.5px;
+  height: 946px; 
+  border: 5px solid crimson;
+  position: absolute;
+}
+
+#background-video {
+  width: 99vw;
+  height: 98.1vh;
+  object-fit: cover;
+  position: fixed;
+}
+
+#snakeHead {
+  background-color: rgb(255,204,229); 
+  width: 20px;
+  height: 20px;
+  position: absolute;
+/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
+/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+}  
+
+.snake {
+  background-color: rgb(255, 241, 15);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}  
+
+#apple {
+  background-color: rgb(255, 0, 0);
+  width: 20px;
+  height: 20px; 
+  position: absolute;
+}
+#score {
+  color: rgb(255, 255, 255); 
+  top: 50px;
+  position: absolute; 
+  font-family:'Courier New', Courier, monospace; 
+} 
