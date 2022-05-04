@@ -1,0 +1,38 @@
+.grid { /*the border/where the game is played*/
+	width: 300px;
+	height: 300px;
+	border: solid black 1px;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative; 
+	left: 520px;
+	top: 100px;
+}
+
+.grid div { /*creates a 20 px by 20 px gride for all other game assets to fit in*/
+	width: 20px;
+	height: 20px;
+} 
+
+.results{ 
+	position: relative;  
+	left: 600px;
+	top: 130px;
+}
+
+.invader { /*enemy of the game*/
+	background-color: purple;
+	border-radius: 10px; /*makes enemy round*/
+}
+
+.shooter { /*player controller character*/
+	background-color: green;
+}
+
+.laser { /*shot that destroys the invader on hit*/
+	background-color: orange;
+}
+
+.boom { /*replaces the invader with an effect when hit by laser and then dissapers*/
+	background-color: red;
+}
