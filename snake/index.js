@@ -8,7 +8,7 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
   // Constant Variables
-  var FRAME_RATE = 10;
+  var FRAME_RATE = 15;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;  
   const appleEat = new Audio('poyo.mp3'); //audio for when the apple gets eaten
   const gameOver = new Audio('KirbyDeathSound.mp3');  //audio for the game over
