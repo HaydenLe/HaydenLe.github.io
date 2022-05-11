@@ -9,6 +9,13 @@
 	top: 100px;
 }
 
+#background-video {
+	width: 99vw;
+	height: 98.1vh;
+	object-fit: cover;
+	position: fixed;
+  }
+
 .grid div { /*creates a 20 px by 20 px gride for all other game assets to fit in*/
 	width: 20px;
 	height: 20px;
@@ -18,21 +25,28 @@
 	position: relative;  
 	left: 600px;
 	top: 130px;
+} 
+
+.controls{ 
+	position: relative;  
+	left: 600px;
+	top: 130px;
 }
 
 .invader { /*enemy of the game*/
-	background-color: purple;
+	background-color: rgb(183,158,144);
 	border-radius: 10px; /*makes enemy round*/
 }
 
 .shooter { /*player controller character*/
-	background-color: green;
+	background-color: rgb(0, 78, 0);
 }
 
 .laser { /*shot that destroys the invader on hit*/
-	background-color: orange;
+	background-color: orange;   
+	
 }
 
 .boom { /*replaces the invader with an effect when hit by laser and then dissapers*/
-	background-color: red;
+	background-color: rgb(110, 0, 0);
 }

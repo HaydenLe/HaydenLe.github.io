@@ -4,13 +4,23 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Space Invaders</title>
+  
+  <title>Doomified Space Invaders</title> 
+  <link rel = "icon" href = "doom.v3.png"  type = "image/x-icon"> 
   <link rel="stylesheet" href="style.css">
 
-</head>
+</head> 
 <body>
-  <h1 class="results">0</h1>
-  <div class="grid"></div>
-  <script src="app.js"></script>
+  <video id="background-video" autoplay loop poster="kirbspeed.gif"> 
+    <source src="Monsoon.mp4" type="video/mp4"> 
+  </video> 
+  <h1 class="results">0</h1> 
+  <div class="grid"></div> 
+  <div class = "controls"> CONTROLS: </div> 
+  <div class = "controls">  LeftArrow = move Left </div>   
+  <div class = "controls">  RightArrow = move Right </div>   
+  <div class = "controls">  UpArrow = Peashooter </div>   
+  <div class = "controls">  DownArrow = Shotgun </div>   
+  <script src="index.js"></script>
 </body>
 </html>
