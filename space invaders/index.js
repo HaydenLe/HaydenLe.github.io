@@ -14,9 +14,15 @@ const gameOver = new Audio('regicry.mp3') //audio for the game over
 const pea = new Audio("Peashooter shot.mp3") //audio for the peashooter shot 
 const bang = new Audio("Peashooter smack.mp3") //audio for when the invader explodes
 const BOOM = new Audio("Doom 2 Super Shotgun.mp3") //audio for the shotgun shot
-const joke = new Audio("joke.mp3") //audio for dumb mode  
+const joke = new Audio("joke.mp3") //audio for dumb mode   
+const theme = new Audio("Dragonborn Doom Version.mp3") //audio for background music 
+const slash = new Audio("sword spin slash.mp3") //melee sound 
+const AH = new Audio("Cr1tikal disappears.mp3") //audio when invader is sliced and diced 
+const RaT = new Audio("Rip and tearuntil it is done.mp3") //audio to tell what to do 
+const Win = new Audio("Rip and Tear Chant Short Loop.mp3") //audio for winners
 
-
+RaT.play(); //every instance of .play plays the audio file given to the variable 
+theme.play(); //cool bug factas: I cut the mp3 to be a few seconds shorter so the base drop is in sync if the end of the RaT audio
 for (let i = 0; i < 225; i++) { //allows for at maximum 224 sqaure grid
   const square = document.createElement('div') //creates a new div that in turn creates a new square each time the loop is run
   grid.appendChild(square) //puts the square into the actual grid to be seen and affected in game 
@@ -95,7 +101,8 @@ function moveInvaders() { ///moves the enemy invaders
 
   if (squares[currentShooterIndex].classList.contains('invader', 'shooter')) { ///checks to see if the invader and the player shooter share the same square, if so do: x 
     resultsDisplay.innerHTML = 'GAME OVER' ///displays a game over screen in text by putting it in the .result html  
-  //video that plays when game over
+  //video that plays when game over 
+    theme.pause(); //stops the main theme to make sure the player hears the game over sound
     gameOver.play(); //audio that plays when game over
     clearInterval(invadersId) ///stops all code future execution that has anything to do with invadersID
   }
@@ -106,12 +113,14 @@ function moveInvaders() { ///moves the enemy invaders
                                               ///could happen if the shooter move out the movement pattern of the invaders
       resultsDisplay.innerHTML = 'GAME OVER'  ///displays a game over screen in text by putting it in the .result html  
  //video that plays when game over
+      theme.pause(); //stops the main theme to make sure the player hears the game over sound
       gameOver.play(); //audio that plays when game over
       clearInterval(invadersId) ///stops all code future execution that has anything to do with invadersID
     }
   }
   if (aliensRemoved.length === alienInvaders.length) { ///checks to see if the amount of invaders inside the aliensRemoved array 
-                                                      ///is the same as the amount of aliens in the alienInvaders array
+                                                      ///is the same as the amount of aliens in the alienInvaders array 
+    Win.play();
     resultsDisplay.innerHTML = 'YOU WIN' ///displays a win screen in text by putting it in the .result html
     clearInterval(invadersId) ///stops all code future execution that has anything to do with invadersID
   }
@@ -317,6 +326,7 @@ function Crucible(e){
         squares[currentFront].classList.remove('laser') ///remove the laser from the square 
         squares[currentFront].classList.remove('invader') ///remove the invader from the square
         squares[currentFront].classList.add('boom') ///add a boom to where the sqaure is  
+     
 
         setTimeout(()=> squares[currentFront].classList.remove('boom'), 300) ///remove the boom from the square after 300 miliseconds   
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen
@@ -335,8 +345,9 @@ function Crucible(e){
       if (squares[currentFront + 1].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 1].classList.remove('laser') ///remove the laser from the square 
         squares[currentFront + 1].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 1].classList.add('boom') ///add a boom to where the sqaure is 
-        
+        squares[currentFront + 1].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
+                
         setTimeout(()=> squares[currentFront + 1].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
       
@@ -371,7 +382,8 @@ function Crucible(e){
       if (squares[currentFront + 3].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 3].classList.remove('laser') ///remove the laser from the square
         squares[currentFront + 3].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 3].classList.add('boom') ///add a boom to where the sqaure is  
+        squares[currentFront + 3].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
 
         setTimeout(()=> squares[currentFront + 3].classList.remove('boom'), 300)  
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -388,7 +400,8 @@ function Crucible(e){
       if (squares[currentFront + 4].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 4].classList.remove('laser') ///remove the laser from the square
         squares[currentFront + 4].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 4].classList.add('boom') ///add a boom to where the sqaure is 
+        squares[currentFront + 4].classList.add('boom') ///add a boom to where the sqaure is  
+        AH.play()
 
         setTimeout(()=> squares[currentFront + 4].classList.remove('boom'), 300)  
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -405,7 +418,8 @@ function Crucible(e){
       if (squares[currentFront + 5].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 5].classList.remove('laser') ///remove the laser from the square
         squares[currentFront + 5].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 5].classList.add('boom') ///add a boom to where the sqaure is  
+        squares[currentFront + 5].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
 
         setTimeout(()=> squares[currentFront + 5].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -422,7 +436,8 @@ function Crucible(e){
       if (squares[currentFront + 6].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 6].classList.remove('laser') ///remove the laser from the square
         squares[currentFront + 6].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 6].classList.add('boom') ///add a boom to where the sqaure is  
+        squares[currentFront + 6].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
 
         setTimeout(()=> squares[currentFront + 6].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -439,7 +454,8 @@ function Crucible(e){
       if (squares[currentFront + 7].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront + 7].classList.remove('laser') ///remove the laser from the square
         squares[currentFront + 7].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront + 7].classList.add('boom') ///add a boom to where the sqaure is  
+        squares[currentFront + 7].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
 
         setTimeout(()=> squares[currentFront + 7].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -456,7 +472,8 @@ function Crucible(e){
       if (squares[currentFront - 1].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront - 1].classList.remove('laser') ///remove the laser from the square
         squares[currentFront - 1].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront - 1].classList.add('boom') ///add a boom to where the sqaure is  
+        squares[currentFront - 1].classList.add('boom') ///add a boom to where the sqaure is   
+        AH.play()
 
         setTimeout(()=> squares[currentFront - 1].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -473,7 +490,8 @@ function Crucible(e){
        if (squares[currentFront - 2].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront - 2].classList.remove('laser') ///remove the laser from the square
         squares[currentFront - 2].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront - 2].classList.add('boom') ///add a boom to where the sqaure is 
+        squares[currentFront - 2].classList.add('boom') ///add a boom to where the sqaure is  
+        AH.play()
 
         setTimeout(()=> squares[currentFront - 2].classList.remove('boom'), 300)  
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen  
@@ -491,7 +509,8 @@ function Crucible(e){
         squares[currentFront - 3].classList.remove('laser') ///remove the laser from the square
       squares[currentFront - 3].classList.remove('invader') ///remove the invader from the square
       squares[currentFront - 3].classList.add('boom') ///add a boom to where the sqaure is 
-
+      AH.play()
+ 
       setTimeout(()=> squares[currentFront - 3].classList.remove('boom'), 300) 
       clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
       const alienRemoved = alienInvaders.indexOf(currentFront - 3) 
@@ -507,7 +526,8 @@ function Crucible(e){
       } if (squares[currentFront - 4].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront - 4].classList.remove('laser') ///remove the laser from the square
         squares[currentFront - 4].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront - 4].classList.add('boom') ///add a boom to where the sqaure is 
+        squares[currentFront - 4].classList.add('boom') ///add a boom to where the sqaure is  
+        AH.play()
 
         setTimeout(()=> squares[currentFront - 4].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -525,7 +545,8 @@ function Crucible(e){
       if (squares[currentFront - 5].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
       squares[currentFront - 5].classList.remove('laser') ///remove the laser from the square
       squares[currentFront - 5].classList.remove('invader') ///remove the invader from the square
-      squares[currentFront - 5].classList.add('boom') ///add a boom to where the sqaure is 
+      squares[currentFront - 5].classList.add('boom') ///add a boom to where the sqaure is  
+      AH.play()
 
       setTimeout(()=> squares[currentFront - 5].classList.remove('boom'), 300)  
       clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -543,7 +564,8 @@ function Crucible(e){
       if (squares[currentFront - 6].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront - 6].classList.remove('laser') ///remove the laser from the square
         squares[currentFront - 6].classList.remove('invader') ///remove the invader from the square
-        squares[currentFront - 6].classList.add('boom') ///add a boom to where the sqaure is 
+        squares[currentFront - 6].classList.add('boom') ///add a boom to where the sqaure is  
+        AH.play()
 
         setTimeout(()=> squares[currentFront - 6].classList.remove('boom'), 300) 
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen  
@@ -561,7 +583,8 @@ function Crucible(e){
       if (squares[currentFront - 7].classList.contains('invader')){  ///if the laser shares the same square as an invader|basically a collision function   
         squares[currentFront - 7].classList.add('boom') ///add a boom to where the sqaure is
         squares[currentFront - 7].classList.add('boom') ///add a boom to where the sqaure is 
-        squares[currentFront - 7].classList.add('boom') ///add a boom to where the sqaure is 
+        squares[currentFront - 7].classList.add('boom') ///add a boom to where the sqaure is  
+        AH.play()
 
         setTimeout(()=> squares[currentFront - 7].classList.remove('boom'), 300)  
         clearInterval(laserId) ///reset the laser, for this case removes the laser/boom after hitting the invader to it doesn't stay on screen 
@@ -601,7 +624,8 @@ function Crucible(e){
                   ///.code instead of .key because for SOME REASON the SPACEBAR does not work with .key 
                   ///it is the only key on the keyboard that DOESN'T use .key
     case 'Space': ///use Spacebar key to fire laser
-      laserId = setInterval(moveLaser, 1000) ///move the laser every 1 second (1000 milisecond = 1 second)
+      laserId = setInterval(moveLaser, 750) ///move the laser every 750 miliseconds
+      slash.play();
   }   
 }   
 document.addEventListener('keyup', Crucible) ///when key is released, shoot the laser from the shooter. keyup instead of keydown meant to prevent spam of second shot 
